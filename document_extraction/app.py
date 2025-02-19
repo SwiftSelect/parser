@@ -1,36 +1,3 @@
-# import json
-# import sys
-# from document_processing import DocumentProcessor
-# from llm_model import llm_instance
-# from langchain.chains import LLMChain
-# from prompt_template import prompt_handler
-
-# def main():
-#     if len(sys.argv) < 2:
-#         print("Usage: python app.py <PDF_FILE_PATH> [OUTPUT_FILE_PATH]")
-#         sys.exit(1)
-    
-#     file_path = sys.argv[1]
-    
-#     # Optional: Get output file path from command-line arguments (default is 'output.json')
-#     output_file_path = sys.argv[2] if len(sys.argv) > 2 else "output.json"
-    
-#     # Process the document and get structured resume
-#     processor = DocumentProcessor(file_path)
-#     chunks = processor.split_text()
-    
-#     resume_text = "\n".join([chunk.page_content for chunk in chunks])
-#     llm_chain = LLMChain(llm=llm_instance.get_model(), prompt=prompt_handler.get_prompt())
-#     structured_resume = llm_chain.run(resume_text)
-#     print(structured_resume)
-#     # Write the output to a file with proper formatting (pretty-print)
-#     with open(output_file_path, 'w') as output_file:
-#         json.dump(structured_resume, output_file, indent=4, ensure_ascii=False)
-    
-#     print(f"Structured resume has been saved to {output_file_path}")
-
-# if __name__ == "__main__":
-#     main()
 import json
 import sys
 from document_processing import DocumentProcessor
