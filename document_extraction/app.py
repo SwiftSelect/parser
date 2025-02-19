@@ -69,6 +69,7 @@
 # if __name__ == "__main__":
 #     main()
 
+
 from fastapi import FastAPI, File, UploadFile, HTTPException
 import json
 from document_processing import DocumentProcessor
@@ -100,19 +101,27 @@ def extract_json_from_llm_output(text: str):
 @app.post("/process-document/")
 async def process_document(file: UploadFile = File(...)):
     try:
+        # Step 1: Save uploaded file to disk temporarily
         temp_filename = f"temp_{file.filename}"
-        
-        # Save file to disk
         with open(temp_filename, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        # Pass the saved file path to your processing function
-        result = DocumentProcessor(temp_filename)  # Example function
-
-        # Delete temp file after processing (optional)
+        # Step 2: Extract text from the PDF
+        processor = DocumentProcessor(temp_filename)
+        chunks = processor.split_text()
+        resume_text = "\n".join([chunk.page_content for chunk in chunks])
+        
+        # Step 3: Use LLM for further processing
+        llm_chain = LLMChain(llm=llm_instance.get_model(), prompt=prompt_handler.get_prompt())
+        raw_output = llm_chain.run(resume_text)
+        
+        # Step 4: Extract structured JSON from LLM output
+        structured_resume = extract_json_from_llm_output(raw_output)
+        
+        # Step 5: Delete temporary file after processing (optional)
         os.remove(temp_filename)
-
-        return {"filename": file.filename, "result": result}
+        
+        return {"filename": file.filename, "result": structured_resume}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
