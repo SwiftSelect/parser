@@ -1,0 +1,110 @@
+{
+    "name": "Shreyas Kulkarni",
+    "contact": {
+        "phone": "+1-669-977-9227",
+        "email": "skulkarni.sk.18@gmail.com",
+        "linkedin": "LinkedIn",
+        "github": "Github",
+        "publication": "Publication",
+        "certifications": "Certifications"
+    },
+    "education": [
+        {
+            "degree": "Master of Science",
+            "field": "Computer Engineering",
+            "university": "San Jose State University",
+            "start_date": "Aug. 2023",
+            "end_date": "May 2025"
+        }
+    ],
+    "technical_skills": {
+        "languages": [
+            "Python",
+            "C/C++",
+            "SQL (Postgres)",
+            "Shell Scripting",
+            "MATLAB"
+        ],
+        "tools": [
+            "Tensorflow",
+            "PyTorch",
+            "OpenVINO",
+            "ONNX",
+            "AutoML",
+            "MLFlow",
+            "Pandas",
+            "Numpy",
+            "Scikit-Learn",
+            "Hugging Face",
+            "Git",
+            "GitLab",
+            "Docker",
+            "Airflow",
+            "Kubernetes",
+            "Google Cloud",
+            "AWS EC2",
+            "S3",
+            "Databricks",
+            "Hadoop",
+            "PySpark",
+            "Jupyter Notebook"
+        ]
+    },
+    "experience": [
+        {
+            "title": "Deep Learning Project Assistant",
+            "company": "San Jose State University",
+            "location": "San Jose, CA",
+            "start_date": "Aug. 2024",
+            "end_date": "Present",
+            "responsibilities": [
+                "Utilizing zero-shot (all-MiniLM-L6-v2) and pre-trained generative models (BERT, Sentence Transformers, Llama 3.1) using PyTorch to boost resume parsing and candidate job matching accuracy, achieving a 95% efficiency.",
+                "Implementing Nvidia embedding models and Milvus vector database for efficient query retrieval, making the application scalable and context-aware AI solution relevant to conversational AI systems.",
+                "Developing a Retrieval-Augmented Generation (RAG)-based chatbot leveraging Nvidia’s embedding models, Milvus vector database, and Gradio interface, to achieve at least 90% accuracy in real-time resume querying.",
+                "Implementing cloud-based infrastructure on AWS by leveraging services like S3 for candidate data storage and RDS for structured data management, ensuring scalability and reliability."
+            ]
+        },
+        {
+            "title": "Machine Learning Engineer",
+            "company": "PricewaterhouseCoopers",
+            "location": "Bengaluru, India",
+            "start_date": "Aug. 2021",
+            "end_date": "Jul. 2023",
+            "responsibilities": [
+                "Developed a scalable FastAPI-based backend to serve ML models for real-time financial document summarization and sentiment analysis using LangChain, attaining a ROUGE-2 score of 0.85.",
+                "Developed a centralized platform using Linux Server and PostgreSQL to unify data from Jira and Azure DevOps, reducing data hunting time by 50% and implemented CI/CD pipeline for automated deployment.",
+                "Containerized a multi-client product on Azure using Docker to streamline deployment, monitor KPI, automate REST API data ingestion, and orchestrate workflows with Apache Airflow DAGs.",
+                "Designed and implemented an efficient ETL workflow using Alteryx, resulting in a 25% reduction in processing time and a 20% increase in data accuracy.",
+                "Collaborated on an end-to-end MLOps pipeline employing MLflow for model tracking and versioning to preprocess datasets with 10M+ data points.",
+                "Outperformed baseline models by developing advanced models (XGBoost, LSTM) on Azure Databricks, reducing RMSE by 15% and MAE by 12%.",
+                "Orchestrated large-scale data workflows with PySpark and implemented production-level model retraining pipelines with MLflow, tripling retraining speeds.",
+                "Delivered an AI-driven churn prediction system using BigQuery ML, XGBoost, and Google Vertex AI, elevating user retention rates and facilitating real-time predictions for a user base exceeding 1 billion."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "Brain MRI Classifier",
+            "start_date": "Jan. 2025",
+            "end_date": "Feb. 2025",
+            "description": "Developed an end-to-end deep learning pipeline for multi-class brain MRI classification, achieving an accuracy of 97% using VGGNet and transfer learning along with MLOps tools like DVC and GitHub Actions.",
+            "technologies": [
+                "VGGNet",
+                "transfer learning",
+                "MLOps",
+                "AWS",
+                "Docker"
+            ]
+        },
+        {
+            "title": "Waymo 3D semantic segmentation",
+            "start_date": "Aug. 2024",
+            "end_date": "Dec. 2024",
+            "description": "Achieved a final mIoU of 0.70 and mAcc of 81% on 1TB Waymo Open Dataset by optimizing the PointceptV3 semantic segmentation transformer for large-scale LiDAR data.",
+            "technologies": [
+                "PointceptV3",
+                "LiDAR data"
+            ]
+        }
+    ]
+}
