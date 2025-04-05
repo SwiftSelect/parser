@@ -9,3 +9,14 @@ streamlit
 fastapi
 uvicorn
 python-multipart
+SQLAlchemy 
+databases 
+asyncpg
+pytest
+requests
+gunicorn
+kafka-python
+boto3
+aiokafka
+fastapi[standard]
+PyPDF2
