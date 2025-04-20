@@ -1,3 +1,6 @@
+# Check the parser-kafka branch. 
+- Main doesnt't have anything. All the work is in the parser-kafka branch. I need to merge it with the main.
+
 # parser
 Recent updates:
 1. Developed endpoint and verified on SwaggerUI.
