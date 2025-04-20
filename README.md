@@ -22,6 +22,7 @@ This repository contains a FastAPI-based application designed to upload resumes,
 ---
 
 ## Project Structure
+
 ```
 parser/
 ├── main_application/
@@ -39,17 +40,24 @@ parser/
 ## Setup Instructions
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-repo/resume-processing-api.git
 cd resume-processing-api
 ```
+
 ### 2. Start Kafka Using Docker
+
 Run the following command to start Kafka and Zookeeper:
+
 ```bash
 docker-compose up -d
 ```
+
 ### 3. Install Python Dependencies
+
 Create a virtual environment and install the dependencies:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -61,15 +69,21 @@ pip install -r [requirements.txt]
 ## Running the Application
 
 ### 1. Start the FastAPI Server
+
 Run the following command to start the application:
+
 ```bash
 python app.py
 ```
+
 The server will start at http://127.0.0.1:8000.
+
 ### 2. Test the /upload Endpoint
+
 Use Postman or curl to test the /upload endpoint.
 
 ### Example response
+
 ```
 {
   "filename": "resume.pdf",
@@ -111,8 +125,8 @@ Use Postman or curl to test the /upload endpoint.
 }
 ```
 
-
 ### Key Components
+
 /upload Endpoint
 Method: POST
 Description: Handles file uploads and processes the content to extract structured data.
@@ -120,18 +134,22 @@ Input: A file (e.g., PDF or text file).
 Output: JSON containing structured resume data.
 
 ### Kafka Integration
+
 Producer: Sends processed resume data to the processed_resume_topic.
 Consumer: Can be extended to consume messages for downstream processing.
 
 ### Development Notes
+
 The application is tested for PDF files but can be extended to support other formats.
 The /process endpoint is not used, as the /upload endpoint handles both uploading and processing.
 Ensure Kafka is running before starting the application.
 
 ### Future Enhancements
+
 Add support for additional file formats (e.g., DOCX).
 Implement authentication and authorization for secure API access.
 Extend Kafka consumer functionality for real-time analytics.
 
 ### License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
