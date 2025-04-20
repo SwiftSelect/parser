@@ -21,7 +21,7 @@ This repository contains a FastAPI-based application designed to upload resumes,
 
 ---
 
-### Project Structure
+## Project Structure
 ```
 parser/
 ├── main_application/
