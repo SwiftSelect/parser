@@ -83,10 +83,14 @@ async def upload_and_process_file(file: UploadFile = File(...)):
         structured_data = extract_json_from_llm_output(raw_output)
 
         # Send processed data to Kafka
-        message = {"filename": file.filename, "structured_data": structured_data}
+        message = {
+            "filename": file.filename,
+            "structured_data": structured_data,
+            "candidateID": candidate_id  # Add candidateID to Kafka message
+        }
         topic = "processed_resume_topic"
         await send_to_kafka(message, topic)
 
-        return {"filename": file.filename, "result": structured_data}
+        return {"filename": file.filename, "candidateID":candidate_id, "result": structured_data}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
