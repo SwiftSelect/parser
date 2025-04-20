@@ -70,7 +70,7 @@ The server will start at http://127.0.0.1:8000.
 Use Postman or curl to test the /upload endpoint.
 
 ### Example response
-
+```
 {
   "filename": "resume.pdf",
   "result": {
@@ -109,9 +109,10 @@ Use Postman or curl to test the /upload endpoint.
     ]
   }
 }
+```
 
 ### Project Structure
-
+```
 parser/
 ├── main_application/
 │   ├── app.py                # Main FastAPI application
@@ -123,7 +124,7 @@ parser/
 │   ├── config.py             # Configuration file for environment variables
 ├── docker-compose.yml        # Docker configuration for Kafka and Zookeeper
 ├── requirements.txt          # Python dependencies
-
+```
 
 
 ### Key Components
