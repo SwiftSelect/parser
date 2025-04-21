@@ -8,6 +8,8 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "22181:22181"
+    networks:
+    - kafka_network
   kafka:
     image: confluentinc/cp-kafka:latest
     container_name: kafka
@@ -26,6 +28,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     volumes:
       - ./confluentinc/cp-kafka:/confluentinc/cp-kafka
+    networks:
+      - kafka_network
   kafdrop:
     image: obsidiandynamics/kafdrop:latest
     container_name: kafdrop
@@ -36,3 +40,5 @@ services:
       JVM_OPTS: "-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UserStringDeduplication -noverify"
     depends_on:
       - kafka
+    networks:
+      - kafka_network
