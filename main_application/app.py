@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
-from routes import upload_router, process_router
+from routes import process_router  # Removed upload_router
 from services.kafka_consumer import start_consumer, stop_consumer
 from services.kafka_producer import start_producer, stop_producer
 from utils.logger import logger
@@ -24,13 +24,12 @@ async def lifespan(app: FastAPI):
 # Initialize FastAPI app with lifespan
 app = FastAPI(
     title="Resume Processing API",
-    description="An API for uploading resumes, processing them, and exposing structured data.",
+    description="An API for processing resumes via Kafka and exposing structured data.",
     version="1.0.0",
     lifespan=lifespan
 )
 
-# Include routers
-app.include_router(upload_router, prefix="/upload", tags=["Upload"])
+# Include routers - removed upload_router
 app.include_router(process_router, prefix="/process", tags=["Process"])
 
 # Add CORS middleware (optional, if needed)
