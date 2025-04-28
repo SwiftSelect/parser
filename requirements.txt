@@ -20,3 +20,4 @@ boto3
 aiokafka
 fastapi[standard]
 PyPDF2
+supabase
