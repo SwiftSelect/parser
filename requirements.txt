@@ -20,3 +20,5 @@ boto3
 aiokafka
 fastapi[standard]
 PyPDF2
+supabase
+confluent-kafka>=2.3.0
