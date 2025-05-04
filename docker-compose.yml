@@ -1,5 +1,15 @@
 version: "3.8"
 services:
+  parser-api:
+    image: shreyaskulkarni/swiftselect-parser-api:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=pkc-921jm.us-east-2.aws.confluent.cloud:9092
+    env_file:
+      - .env
+    depends_on:
+      - kafka
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     container_name: zookeeper
@@ -7,7 +17,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     ports:
-      - "22181:22181"
+      - "22181:2181"
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -22,11 +32,11 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    volumes:
-      - ./confluentinc/cp-kafka:/confluentinc/cp-kafka
+    # volumes:
+    #   - ./confluentinc/cp-kafka:/confluentinc/cp-kafka
 
   kafdrop:
     image: obsidiandynamics/kafdrop:latest
